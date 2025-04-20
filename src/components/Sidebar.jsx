@@ -1,14 +1,10 @@
-import styles from './Sidebar.module.css';
+import styles from "./Sidebar.module.css";
 import { PencilLine } from "@phosphor-icons/react";
 
 export function Sidebar() {
   return (
     <aside className={styles.sidebar}>
-      <img
-        className={styles.cover}
-        src="/cover.jpg"
-        alt="Capa"
-      />
+      <img className={styles.cover} src="/cover.jpg" alt="Capa" />
 
       <div className={styles.profile}>
         <img
@@ -27,5 +23,5 @@ export function Sidebar() {
         </a>
       </footer>
     </aside>
-  )
-}  
+  );
+}

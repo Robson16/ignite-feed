@@ -1,6 +1,6 @@
-import styles from './Header.module.css';
+import styles from "./Header.module.css";
 
-import logoIgnite from '../assets/logo-ignite.svg';
+import logoIgnite from "../assets/logo-ignite.svg";
 
 export function Header() {
   return (
@@ -9,4 +9,4 @@ export function Header() {
       <h1>Ignite Feed</h1>
     </header>
   );
-} 
+}
