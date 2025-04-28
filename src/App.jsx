@@ -8,7 +8,7 @@ const posts = [
   {
     id: "a7b2c3d4-e5f6-7890-1234-567890abcdef",
     author: {
-      avatar_url: "https://avatar.iran.liara.run/public/boy",
+      avatar_url: "https://i.pravatar.cc/150?img=8",
       name: "Carlos Alberto Silva",
       role: "Arqueólogo Sênior"
     },
@@ -21,7 +21,7 @@ const posts = [
   {
     id: "f1e2d3c4-b5a6-9870-fedc-ba9876543210",
     author: {
-      avatar_url: "https://avatar.iran.liara.run/public/girl",
+      avatar_url: "https://i.pravatar.cc/150?img=5",
       name: "Ana Beatriz Oliveira",
       role: "Bióloga Marinha"
     },
@@ -34,7 +34,7 @@ const posts = [
   {
     id: "09876543-21ba-fedc-0123-456789abcdef0",
     author: {
-      avatar_url: "https://avatar.iran.liara.run/public/boy",
+      avatar_url: "https://i.pravatar.cc/150?img=13",
       name: "Pedro Henrique Souza",
       role: "Engenheiro de Software"
     },
@@ -47,7 +47,7 @@ const posts = [
   {
     id: "bcdefa01-2345-6789-abcd-ef0123456789",
     author: {
-      avatar_url: "https://avatar.iran.liara.run/public/girl",
+      avatar_url: "https://i.pravatar.cc/150?img=26",
       name: "Mariana Costa Pereira",
       role: "Física Teórica"
     },
@@ -60,7 +60,7 @@ const posts = [
   {
     id: "98765432-10fe-dcba-9012-34567890abcd",
     author: {
-      avatar_url: "https://avatar.iran.liara.run/public/boy",
+      avatar_url: "https://i.pravatar.cc/150?img=59",
       name: "Lucas Ferreira Alves",
       role: "Chef de Cozinha Inovador"
     },
