@@ -1,12 +1,13 @@
 import { format, formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { useState } from "react";
+import { v4 as uuid } from 'uuid';
 import { Avatar } from "./Avatar";
 import { Comment } from "./Comment";
 import styles from "./Post.module.css";
 
 export function Post({ author, publishedAt, content }) {
-  const [comments, setComments] = useState(['Muito bom!']);
+  const [comments, setComments] = useState([{ 'id': '83bb01a6-925f-4293-ae5b-de6c4e1f18d9', 'content': 'Muito bom!' }]);
   const [newCommentText, setNewCommentText] = useState('');
 
   const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
@@ -20,7 +21,10 @@ export function Post({ author, publishedAt, content }) {
 
   function handleCreateNewComment(event) {
     event.preventDefault();
-    setComments([...comments, newCommentText]);
+    setComments([...comments, {
+      id: uuid(),
+      content: newCommentText,
+    }]);
     setNewCommentText('');
   }
 
@@ -47,12 +51,12 @@ export function Post({ author, publishedAt, content }) {
       </header>
 
       <div className={styles.content}>
-        {content.map((line, index) => {
+        {content.map((line) => {
           if (line.type === "paragraph") {
-            return <p key={index}>{line.content}</p>;
+            return <p key={line.id}>{line.content}</p>;
           } else if (line.type === "link") {
             return (
-              <p key={index}>
+              <p key={line.id}>
                 <a href="#">{line.content}</a>
               </p>
             );
@@ -76,7 +80,7 @@ export function Post({ author, publishedAt, content }) {
       </form>
 
       <div className={styles.commentList}>
-        {comments.map((comment) => <Comment content={comment} />)}
+        {comments.map((comment) => <Comment key={comment.id} content={comment.content} />)}
       </div>
     </article>
   );

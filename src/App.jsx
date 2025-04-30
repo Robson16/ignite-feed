@@ -14,8 +14,8 @@ const posts = [
     },
     publishedAt: new Date("2025-04-27T11:15:00Z"),
     content: [
-      { type: "paragraph", content: "Novas escavações na região amazônica revelaram artefatos de uma civilização pré-colombiana desconhecida." },
-      { type: "paragraph", content: "Os objetos cerâmicos e esculturas em pedra sugerem um conhecimento avançado de astronomia." }
+      { id: "f8a9b0c1-d2e3-4567-89ab-cdef01234567", type: "paragraph", content: "Novas escavações na região amazônica revelaram artefatos de uma civilização pré-colombiana desconhecida." },
+      { id: "9c7d8e6f-0a1b-2345-67cd-ef0123456789", type: "paragraph", content: "Os objetos cerâmicos e esculturas em pedra sugerem um conhecimento avançado de astronomia." }
     ]
   },
   {
@@ -27,8 +27,8 @@ const posts = [
     },
     publishedAt: new Date("2025-04-26T16:30:00Z"),
     content: [
-      { type: "paragraph", content: "Pesquisadores observaram um comportamento inédito em baleias jubarte na costa brasileira." },
-      { type: "paragraph", content: "Os animais parecem estar utilizando um tipo de 'canto' mais complexo durante a época de reprodução." }
+      { id: "e4f5d6c7-b8a9-0123-456f-7890abcdef01", type: "paragraph", content: "Pesquisadores observaram um comportamento inédito em baleias jubarte na costa brasileira." },
+      { id: "12345678-9abc-def0-1234-567890abcdef12", type: "paragraph", content: "Os animais parecem estar utilizando um tipo de 'canto' mais complexo durante a época de reprodução." }
     ]
   },
   {
@@ -40,8 +40,8 @@ const posts = [
     },
     publishedAt: new Date("2025-04-25T09:45:00Z"),
     content: [
-      { type: "paragraph", content: "Uma nova inteligência artificial capaz de traduzir línguas extintas com alta precisão foi desenvolvida." },
-      { type: "paragraph", content: "A tecnologia promete revolucionar o estudo de civilizações antigas." }
+      { id: "34567890-abcdef-0123-4567-89abcdef0123", type: "paragraph", content: "Uma nova inteligência artificial capaz de traduzir línguas extintas com alta precisão foi desenvolvida." },
+      { id: "abcdef01-2345-6789-abcd-ef0123456789a", type: "paragraph", content: "A tecnologia promete revolucionar o estudo de civilizações antigas." }
     ]
   },
   {
@@ -53,8 +53,8 @@ const posts = [
     },
     publishedAt: new Date("2025-04-24T19:00:00Z"),
     content: [
-      { type: "paragraph", content: "Cientistas anunciaram a detecção de ondas gravitacionais de uma colisão de buracos negros supermassivos." },
-      { type: "paragraph", content: "A descoberta confirma mais uma previsão da teoria da relatividade geral de Einstein." }
+      { id: "bcdefa01-2345-6789-abcd-ef0123456789b", type: "paragraph", content: "Cientistas anunciaram a detecção de ondas gravitacionais de uma colisão de buracos negros supermassivos." },
+      { id: "456789ab-cdef-0123-4567-89abcdef01234", type: "paragraph", content: "A descoberta confirma mais uma previsão da teoria da relatividade geral de Einstein." }
     ]
   },
   {
@@ -66,11 +66,11 @@ const posts = [
     },
     publishedAt: new Date("2025-04-23T12:40:00Z"),
     content: [
-      { type: "paragraph", content: "Um novo método de impressão 3D de alimentos permite criar pratos com texturas e sabores inéditos." },
-      { type: "paragraph", content: "A técnica abre um leque de possibilidades para a gastronomia molecular." }
+      { id: "def01234-5678-9abc-def0-123456789abc", type: "paragraph", content: "Um novo método de impressão 3D de alimentos permite criar pratos com texturas e sabores inéditos." },
+      { id: "56789abc-def0-1234-5678-9abcdef012345", type: "paragraph", content: "A técnica abre um leque de possibilidades para a gastronomia molecular." }
     ]
   }
-]
+];
 
 export function App() {
   return (
