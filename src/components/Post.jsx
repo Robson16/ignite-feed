@@ -33,7 +33,11 @@ export function Post({ author, publishedAt, content }) {
   }
 
   function deleteComment(commentId) {
-    console.log('Deletar comentário', commentId);
+    setComments((prevState) => {
+      return prevState.filter((comment) => {
+        return comment.id !== commentId;
+      });
+    });
   }
 
   return (
