@@ -61,8 +61,8 @@ export function Post({ author, publishedAt, content }: PostProps) {
   }
 
   function deleteComment(commentId: string) {
-    setComments((prevState: Comment[]) => {
-      return prevState.filter((comment: Comment) => {
+    setComments((prevState: CommentData[]) => {
+      return prevState.filter((comment: CommentData) => {
         return comment.id !== commentId;
       });
     });
