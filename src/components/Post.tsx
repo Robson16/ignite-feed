@@ -23,21 +23,26 @@ interface CommentData {
   content: string;
 }
 
-interface PostProps {
+export interface PostType {
+  id: string;
   author: Author;
   publishedAt: Date;
   content: Content[];
 }
 
-export function Post({ author, publishedAt, content }: PostProps) {
+interface PostProps {
+  post: PostType;
+}
+
+export function Post({ post }: PostProps) {
   const [comments, setComments] = useState<CommentData[]>([{ 'id': '83bb01a6-925f-4293-ae5b-de6c4e1f18d9', 'content': 'Muito bom!' }]);
   const [newCommentText, setNewCommentText] = useState('');
 
-  const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
+  const publishedDateFormatted = format(post.publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
     locale: ptBR,
   });
 
-  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+  const publishedDateRelativeToNow = formatDistanceToNow(post.publishedAt, {
     locale: ptBR,
     addSuffix: true,
   });
@@ -75,21 +80,21 @@ export function Post({ author, publishedAt, content }: PostProps) {
       <header className={styles.header}>
         <div className={styles.author}>
           <Avatar
-            src={author.avatar_url}
-            alt={`Avatar do autor ${author.name}`}
+            src={post.author.avatar_url}
+            alt={`Avatar do autor ${post.author.name}`}
           />
           <div className={styles.authorInfo}>
-            <strong>{author.name}</strong>
-            <span>{author.role}</span>
+            <strong>{post.author.name}</strong>
+            <span>{post.author.role}</span>
           </div>
         </div>
-        <time title={publishedDateFormatted} dateTime={publishedAt.toISOString()}>
+        <time title={publishedDateFormatted} dateTime={post.publishedAt.toISOString()}>
           {publishedDateRelativeToNow}
         </time>
       </header>
 
       <div className={styles.content}>
-        {content.map((line) => {
+        {post.content.map((line) => {
           if (line.type === "paragraph") {
             return <p key={line.id}>{line.content}</p>;
           } else if (line.type === "link") {
