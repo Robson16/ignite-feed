@@ -1,13 +1,36 @@
 import { format, formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
-import { useState } from "react";
+import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
 import { v4 as uuid } from 'uuid';
 import { Avatar } from "./Avatar";
 import { Comment } from "./Comment";
 import styles from "./Post.module.css";
 
-export function Post({ author, publishedAt, content }) {
-  const [comments, setComments] = useState([{ 'id': '83bb01a6-925f-4293-ae5b-de6c4e1f18d9', 'content': 'Muito bom!' }]);
+interface Author {
+  name: string;
+  role: string;
+  avatar_url: string;
+}
+
+interface Content {
+  id: string;
+  type: 'paragraph' | 'link';
+  content: string;
+}
+
+interface CommentData {
+  id: string;
+  content: string;
+}
+
+interface PostProps {
+  author: Author;
+  publishedAt: Date;
+  content: Content[];
+}
+
+export function Post({ author, publishedAt, content }: PostProps) {
+  const [comments, setComments] = useState<CommentData[]>([{ 'id': '83bb01a6-925f-4293-ae5b-de6c4e1f18d9', 'content': 'Muito bom!' }]);
   const [newCommentText, setNewCommentText] = useState('');
 
   const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
@@ -19,7 +42,7 @@ export function Post({ author, publishedAt, content }) {
     addSuffix: true,
   });
 
-  function handleCreateNewComment(event) {
+  function handleCreateNewComment(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setComments([...comments, {
       id: uuid(),
@@ -28,18 +51,18 @@ export function Post({ author, publishedAt, content }) {
     setNewCommentText('');
   }
 
-  function handleNewCommentChange(event) {
+  function handleNewCommentChange(event: ChangeEvent<HTMLTextAreaElement>) {
     event.target.setCustomValidity('');
     setNewCommentText(event.target.value);
   }
 
-  function handleNewCommentInvalid(event) {
+  function handleNewCommentInvalid(event: InvalidEvent<HTMLTextAreaElement>) {
     event.target.setCustomValidity('Esse campo é obrigatório!');
   }
 
-  function deleteComment(commentId) {
-    setComments((prevState) => {
-      return prevState.filter((comment) => {
+  function deleteComment(commentId: string) {
+    setComments((prevState: Comment[]) => {
+      return prevState.filter((comment: Comment) => {
         return comment.id !== commentId;
       });
     });
