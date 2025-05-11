@@ -1,7 +1,28 @@
 {
   "name": "ignite-feed",
-  "private": true,
+  "private": false,
   "version": "0.0.0",
+  "description": "Primeiro projeto da Trilha ReactJS do curso Ignite da RocketSeat, focado na criação de um feed de posts interativo com comentários e likes.",
+  "author": {
+    "name": "Robson H. Rodrigues",
+    "url": "https://github.com/Robson16"
+  },
+  "license": "MIT",
+  "homepage": "https://ignite-feed-tawny-ten.vercel.app/",
+  "keywords": [
+    "ignite",
+    "react",
+    "typescript",
+    "rocketseat"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Robson16/ignite-feed.git",
+    "directory": "ignite-feed"
+  },
+  "bugs": {
+    "url": "https://github.com/Robson16/ignite-feed/issues"
+  },
   "type": "module",
   "engines": {
     "node": ">=20.0.0"
