@@ -8,10 +8,7 @@ export function Sidebar() {
       <img className={styles.cover} src="/cover.jpg" alt="Capa" />
 
       <div className={styles.profile}>
-        <Avatar
-          src="https://github.com/Robson16.png"
-          alt="Avatar"
-        />
+        <Avatar src="https://github.com/Robson16.png" alt="Avatar" />
         <strong>Robson H. Rodrigues</strong>
         <span>Web Developer</span>
       </div>

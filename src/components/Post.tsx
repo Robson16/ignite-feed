@@ -1,7 +1,7 @@
 import { format, formatDistanceToNow } from "date-fns";
 import { ptBR } from "date-fns/locale";
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
-import { v4 as uuid } from 'uuid';
+import { v4 as uuid } from "uuid";
 import { Avatar } from "./Avatar";
 import { Comment } from "./Comment";
 import styles from "./Post.module.css";
@@ -14,7 +14,7 @@ interface Author {
 
 interface Content {
   id: string;
-  type: 'paragraph' | 'link';
+  type: "paragraph" | "link";
   content: string;
 }
 
@@ -35,12 +35,18 @@ interface PostProps {
 }
 
 export function Post({ post }: PostProps) {
-  const [comments, setComments] = useState<CommentData[]>([{ 'id': '83bb01a6-925f-4293-ae5b-de6c4e1f18d9', 'content': 'Muito bom!' }]);
-  const [newCommentText, setNewCommentText] = useState('');
+  const [comments, setComments] = useState<CommentData[]>([
+    { id: "83bb01a6-925f-4293-ae5b-de6c4e1f18d9", content: "Muito bom!" },
+  ]);
+  const [newCommentText, setNewCommentText] = useState("");
 
-  const publishedDateFormatted = format(post.publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
-    locale: ptBR,
-  });
+  const publishedDateFormatted = format(
+    post.publishedAt,
+    "d 'de' LLLL 'às' HH:mm'h'",
+    {
+      locale: ptBR,
+    }
+  );
 
   const publishedDateRelativeToNow = formatDistanceToNow(post.publishedAt, {
     locale: ptBR,
@@ -49,20 +55,23 @@ export function Post({ post }: PostProps) {
 
   function handleCreateNewComment(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setComments([...comments, {
-      id: uuid(),
-      content: newCommentText,
-    }]);
-    setNewCommentText('');
+    setComments([
+      ...comments,
+      {
+        id: uuid(),
+        content: newCommentText,
+      },
+    ]);
+    setNewCommentText("");
   }
 
   function handleNewCommentChange(event: ChangeEvent<HTMLTextAreaElement>) {
-    event.target.setCustomValidity('');
+    event.target.setCustomValidity("");
     setNewCommentText(event.target.value);
   }
 
   function handleNewCommentInvalid(event: InvalidEvent<HTMLTextAreaElement>) {
-    event.target.setCustomValidity('Esse campo é obrigatório!');
+    event.target.setCustomValidity("Esse campo é obrigatório!");
   }
 
   function deleteComment(commentId: string) {
@@ -88,7 +97,10 @@ export function Post({ post }: PostProps) {
             <span>{post.author.role}</span>
           </div>
         </div>
-        <time title={publishedDateFormatted} dateTime={post.publishedAt.toISOString()}>
+        <time
+          title={publishedDateFormatted}
+          dateTime={post.publishedAt.toISOString()}
+        >
           {publishedDateRelativeToNow}
         </time>
       </header>
@@ -120,10 +132,7 @@ export function Post({ post }: PostProps) {
         />
 
         <footer>
-          <button
-            type="submit"
-            disabled={isNewCommentEmpty}
-          >
+          <button type="submit" disabled={isNewCommentEmpty}>
             Publicar
           </button>
         </footer>

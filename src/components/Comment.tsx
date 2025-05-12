@@ -41,10 +41,7 @@ export function Comment({ commentData, onDeleteComment }: CommentProps) {
                 Cerca de 1h atrás
               </time>
             </div>
-            <button
-              onClick={handleDeleteComment}
-              title="Deletar comentário"
-            >
+            <button onClick={handleDeleteComment} title="Deletar comentário">
               <Trash size={24} />
             </button>
           </header>
@@ -58,7 +55,7 @@ export function Comment({ commentData, onDeleteComment }: CommentProps) {
             </button>
           </footer>
         </div>
-      </div >
-    </div >
+      </div>
+    </div>
   );
 }
